@@ -1,12 +1,28 @@
+<?php
+include "queary.php";
+$var = $_POST['but'];
+//echo $var;
+$sel = new queary();
+
+$result = $sel->condition_select(['name','branch_no','email','address','phone_number','type_id','type_name','description'],$sel->simpleNaturalJoin('connection_request','type')
+,'request_id ='.$var);
+$row = $result->fetch_assoc();
+$name = $row['name'];
+$email = $row['email'];
+$address = $row['address'];
+$pn = $row['phone_number'];
+$type = $row['type_name'];
+$des = $row['description'];
+?>
 <html>
 <head>
     <title>CONNEC DETAILS</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets3/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets3/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets3/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets3/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="../style/assets3/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../style/assets3/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="../style/assets3/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="../style/assets3/css/ie9.css" /><![endif]-->
 </head>
 <body>
 
@@ -19,10 +35,10 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="conn_req_all.html">NEW REQUESTS</a></li>
-        <li><a href="Inquery.html">INQUIRIES</a></li>
-        <li><a href="Mail.html">DROP MAIL</a></li>
+        <li><a href="../html/index.html">Home</a></li>
+        <li><a href="conn_req_all_gui.php">NEW REQUESTS</a></li>
+        <li><a href="Inquery_gui_php.php">INQUIRIES</a></li>
+        <li><a href="../html/Mail.html">DROP MAIL</a></li>
     </ul>
 </nav>
 
@@ -40,47 +56,42 @@
                     <tbody>
                     <tr>
                         <td>User ID(if exists)</td>
-                        <td>150319H</td>
+                        <td></td>
 
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td>Lakshi Athapaththu</td>
+                        <td><?php echo $name?></td>
 
                     </tr>
                     <tr>
                         <td>E-Mail</td>
-                        <td>lakshiathapaththu998@gmail.com</td>
+                        <td><?php echo $email?></td>
 
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td>Ihalagewatta,Navimana South, Matara</td>
+                        <td><?php echo $address?></td>
 
                     </tr>
                     <tr>
                         <td>Tele</td>
-                        <td>0412229637</td>
+                        <td><?php echo $pn?></td>
 
                     </tr>
                     <tr>
                         <td>Connection Type</td>
-                        <td>3 Phase</td>
+                        <td><?php echo $type?></td>
 
                     </tr>
                     <tr>
                         <td>Description</td>
-                        <td>our relavant transformer is corrupted because of heavy rain.There is a currunt leak and it may
-                            dangerous for villages.Plase take action as soon as possible</td>
+                        <td><?php echo $des?></td>
 
                     </tr>
 
 
-                    <tr>
-                        <td>Other</td>
-                        <td>Other Details </td>
 
-                    </tr>
                     </tbody>
 
                 </table>
@@ -106,17 +117,17 @@
     <div class="inner">
         <ul class="icons">
             <li><a href="#" class="icon fa-facebook">
-                <span class="label">Facebook</span>
-            </a></li>
+                    <span class="label">Facebook</span>
+                </a></li>
             <li><a href="#" class="icon fa-twitter">
-                <span class="label">Twitter</span>
-            </a></li>
+                    <span class="label">Twitter</span>
+                </a></li>
             <li><a href="#" class="icon fa-instagram">
-                <span class="label">Instagram</span>
-            </a></li>
+                    <span class="label">Instagram</span>
+                </a></li>
             <li><a href="#" class="icon fa-linkedin">
-                <span class="label">LinkedIn</span>
-            </a></li>
+                    <span class="label">LinkedIn</span>
+                </a></li>
         </ul>
         <ul class="copyright">
             <li>&copy; Untitled.</li>
@@ -127,11 +138,11 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets3/js/jquery.min.js"></script>
-<script src="assets3/js/skel.min.js"></script>
-<script src="assets3/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets3/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets3/js/main.js"></script>
+<script src="../style/assets3/js/jquery.min.js"></script>
+<script src="../style/assets3/js/skel.min.js"></script>
+<script src="../style/assets3/js/util.js"></script>
+<!--[if lte IE 8]><script src="../style/assets3/js/ie/respond.min.js"></script><![endif]-->
+<script src="../style/assets3/js/main.js"></script>
 
 </body>
 </html>

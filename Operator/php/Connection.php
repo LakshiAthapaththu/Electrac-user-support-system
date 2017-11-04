@@ -5,7 +5,7 @@ class connec{
         $sereverName ='127.0.0.1';
         $userName = 'root';
         $passWord = '';
-        $dbName = 'ceb';
+        $dbName = 'new_ceb';
         $conn = mysqli_connect($sereverName,$userName,$passWord,$dbName);
         return $conn;
     }

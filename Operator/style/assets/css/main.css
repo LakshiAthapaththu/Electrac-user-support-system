@@ -2199,13 +2199,14 @@
 
 	#banner {
 		padding: 12em 0 10em 0;
-		background-image: url('../../images/banner.jpg');
+
+		background-image: url('../../../images/newimg6.jpg');
 		background-size: cover;
 		background-position: top;
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;
-		border-top: 0.5em solid #5385c1;
+		border-top: 0.5em black;
 	}
 
 		#banner h1 {

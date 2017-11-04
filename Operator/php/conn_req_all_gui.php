@@ -4,27 +4,28 @@
     <title>NEW REQUESTS</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets3/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets3/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets3/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets3/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="../style/assets3/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../style/assets3/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="../style/assets3/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="../style/assets3/css/ie9.css" /><![endif]-->
 </head>
 <body>
 
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
-    <h1><a href="index.html">CEYLON ELECTRICITY BOARD</a></h1>
+    <h1><a href="../html/index.html">CEYLON ELECTRICITY BOARD</a></h1>
     <a href="#nav">Menu</a>
 </header>
 
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="conn_req_all.html">NEW REQUESTS</a></li>
-        <li><a href="Inquery.html">INQUIRIES</a></li>
-        <li><a href="Mail.html">DROP MAIL</a></li>
+        <li><a href="../html/index.html">Home</a></li>
+        <li><a href="conn_req_all_gui.php">NEW REQUESTS</a></li>
+        <li><a href="Inquery_gui_php.php">INQUIRIES</a></li>
+        <li><a href="../html/Mail.html">DROP MAIL</a></li>
     </ul>
+
 </nav>
 
 <!-- Main -->
@@ -44,33 +45,30 @@
                     <tr>
                         <th>Request ID</th>
                         <th>Name</th>
-                        <th>Action</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
 
-                    include "conn_req_all_php.php";
-                    $tab=new table();
-                    $result=$tab->addToTable();
+                    include "queary.php";
+                    $tab=new queary();
+                    $result=$tab->simple_select(['request_id','name','Read_state'],'connection_request');
 
 		                while ($row = $result->fetch_assoc()) {
-                            if ($row['Read_state']=='No') {
+                            if ($row['Read_state']=='NO') {
                                 echo '<tr>
 					    <td>' . $row['request_id'] . '</td>
-					    <td>' . $row['name'] . '</td>
-					    <td><a href="conn_req_view.html">VIEW</a>   </td>
+					    <td>' . $row['name'] . '</td> 
+					    <td><form method="post" action="conn_req_view_php.php">
+					       <button type="submit" class="btn tf-btn btn-default" name="but" value='.$row['request_id'].'>View</button>
+                        </form>
+					    </td>
 				        </tr>';
                             }
                         }
-
-
-
                     ?>
-
-
-
-                      </tbody>
+                    </tbody>
 
                 </table>
             </div>
@@ -109,11 +107,11 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets3/js/jquery.min.js"></script>
-<script src="assets3/js/skel.min.js"></script>
-<script src="assets3/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets3/js/main.js"></script>
+<script src="../style/assets3/js/jquery.min.js"></script>
+<script src="../style/assets3/js/skel.min.js"></script>
+<script src="../style/assets3/js/util.js"></script>
+<!--[if lte IE 8]><script src="../style/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="../style/assets3/js/main.js"></script>
 
 </body>
 </html>
