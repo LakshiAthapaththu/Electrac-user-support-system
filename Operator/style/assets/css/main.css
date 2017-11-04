@@ -2200,7 +2200,7 @@
 	#banner {
 		padding: 12em 0 10em 0;
 
-		background-image: url('../../../images/newimg6.jpg');
+		background-image: url('../../../images/newimg1.jpg');
 		background-size: cover;
 		background-position: top;
 		background-attachment: fixed;
@@ -2212,7 +2212,7 @@
 		#banner h1 {
 			font-size: 3.5em;
 			font-weight: 100;
-			color: #fff;
+			color: white;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;

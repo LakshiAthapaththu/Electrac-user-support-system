@@ -1,21 +1,5 @@
 <?php
-include "queary.php";
-$var = $_POST['but'];
-//echo $var;
-$sel = new queary();
-
-$result = $sel->condition_select(['user_name','email','address','telephone_no','message','Inquiry','customer_id','inquiry_id'],'inquiries'
-    ,'inquiry_id ='.$var);
-$row = $result->fetch_assoc();
-$name = $row['user_name'];
-$email = $row['email'];
-$address = $row['address'];
-$pn = $row['telephone_no'];
-$des = $row['message'];
-$i_name=$row['Inquiry'];
-$u_id=$row['customer_id'];
-$i_id = $row['inquiry_id'];
-
+include "inquiry_view_data.php";
 ?>
 <html>
 <head>
@@ -105,10 +89,13 @@ $i_id = $row['inquiry_id'];
         </section>
         <section>
             <ul class="actions">
-                <li><a href="#" class="button">Recorded</a></li>
-                <li><a href="#" class="button">Not Recorded</a></li>
-                <li><a href="#" class="button">Other</a></li>
-
+                <ul class="actions">
+                    <form method="post" action="Mail.php">
+                        <button type="submit" class="btn tf-btn btn-default" name="but" value=<?php echo $var.'RI'?>>Recorded</button>
+                        <button type="submit" class="btn tf-btn btn-default" name="but" value=<?php echo $var.'NI'?>>Not Recorded</button>
+                        <button type="submit" class="btn tf-btn btn-default" name="but" value='OTHERI'>Other</button>
+                    </form>
+                </ul>
 
             </ul>
 

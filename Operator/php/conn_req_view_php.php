@@ -1,18 +1,6 @@
 <?php
-include "queary.php";
-$var = $_POST['but'];
-//echo $var;
-$sel = new queary();
+include "conn_req_view_data.php"
 
-$result = $sel->condition_select(['name','branch_no','email','address','phone_number','type_id','type_name','description'],$sel->simpleNaturalJoin('connection_request','type')
-,'request_id ='.$var);
-$row = $result->fetch_assoc();
-$name = $row['name'];
-$email = $row['email'];
-$address = $row['address'];
-$pn = $row['phone_number'];
-$type = $row['type_name'];
-$des = $row['description'];
 ?>
 <html>
 <head>
@@ -99,11 +87,11 @@ $des = $row['description'];
         </section>
         <section>
             <ul class="actions">
-                <li><a href="#" class="button">Recorded</a></li>
-                <li><a href="#" class="button">Not Recorded</a></li>
-                <li><a href="#" class="button">Other</a></li>
-
-
+                <form method="post" action="Mail.php">
+                <button type="submit" class="btn tf-btn btn-default" name="but" value=<?php echo $var.'RC'?>>Recorded</button>
+                <button type="submit" class="btn tf-btn btn-default" name="but" value=<?php echo $var.'NC'?>>Not Recorded</button>
+                <button type="submit" class="btn tf-btn btn-default" name="but" value='OTHERC'>Other</button>
+                </form>
             </ul>
 
 
